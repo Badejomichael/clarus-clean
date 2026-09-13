@@ -30,7 +30,7 @@ export default function Global() {
           <img
             src="/images/global-team.jpg"
             alt="Clarus regional supervisors coordinating across markets"
-            className="h-56 w-full object-cover sm:h-72"
+            className="supervisors-img h-120 w-full object-cover "
           />
         </div>
 

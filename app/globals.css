@@ -1,5 +1,60 @@
 @import "tailwindcss";
 
+@theme {
+  --color-forest: #1F3329;
+  --color-forest-light: #2C4636;
+  --color-forest-dark: #152219;
+  --color-moss: #4C6B54;
+  --color-sage: #8CA890;
+  --color-mist: #DCE6DD;
+  --color-porcelain: #F5F4EF;
+  --color-paper: #FBFAF7;
+  --color-brass: #B8834A;
+  --color-brass-dark: #96692F;
+  --color-brass-light: #D5A876;
+  --color-ink: #161E19;
+
+  --font-display: var(--font-fraunces), serif;
+  --font-sans: var(--font-manrope), sans-serif;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.75rem;
+
+  --shadow-soft: 0 20px 60px -25px rgba(23, 38, 30, 0.35);
+  --shadow-card: 0 12px 30px -15px rgba(23, 38, 30, 0.25);
+}
+
+/* ---------------------------------------------------------------------
+   Container — previously the "container" key in tailwind.config.ts.
+   Centered, responsive side padding, and a 1240px cap at the 2xl
+   breakpoint, matching the old config 1:1.
+--------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+@media (min-width: 1536px) {
+  .container { max-width: 1240px; }
+}
+
+/* ---------------------------------------------------------------------
+   Base styles
+--------------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
 }
@@ -41,4 +96,10 @@ body {
 
 .text-balance {
   text-wrap: balance;
+}
+
+@media(max-width: 760px) {
+  .supervisors-img {
+    height: 250px !important;
+  }
 }
