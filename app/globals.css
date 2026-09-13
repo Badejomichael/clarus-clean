@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FBFAF7;
+  color: #161E19;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #B8834A;
+  color: #FBFAF7;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #B8834A;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Organic asymmetric frame used behind the hero portrait — scales cleanly at any size */
+.blob-frame {
+  border-radius: 42% 58% 61% 39% / 46% 41% 59% 54%;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
