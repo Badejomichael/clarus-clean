@@ -103,3 +103,9 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+@media (min-width: 768px) {
+  .global-img {
+    height: 500px !important;
+  }
+}

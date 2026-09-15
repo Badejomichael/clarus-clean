@@ -9,9 +9,6 @@ export default function Story() {
       <div className="container grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
         <motion.div {...fadeUp(0, { y: 20 })} className="relative mx-auto w-full max-w-sm lg:mx-0">
           <div className="blob-frame relative aspect-[4/5] w-full overflow-hidden bg-mist">
-            {/* Replace with /public/images/founder.jpg: a natural, candid
-                portrait works better here than a studio headshot. Portrait
-                orientation, roughly 4:5. */}
             <img
               src="/images/founder.jpg"
               alt="Elena Cross, founder of Clarus"

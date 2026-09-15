@@ -24,14 +24,11 @@ export default function Global() {
   return (
     <section id="global" className="py-24 lg:py-32">
       <div className="container">
-        {/* Replace with /public/images/global-team.jpg: a candid shot of a
-            multinational team or a world-map-style overview, wide aspect
-            ratio (roughly 16:6) works best here. */}
         <div className="mb-14 overflow-hidden rounded-4xl">
           <img
             src="/images/global-team.jpg"
             alt="Clarus regional supervisors coordinating across markets"
-            className="h-56 w-full object-cover sm:h-72"
+            className="w-full object-cover sm:h-72 global-img"
           />
         </div>
 
