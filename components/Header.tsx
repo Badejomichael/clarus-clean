@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiMenu, FiX, FiPhone } from "react-icons/fi";
+import { mobileMenu } from "@/lib/animations";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "How it works", href: "#process" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Our story", href: "#story" },
   { label: "Where we work", href: "#global" },
   { label: "Client stories", href: "#stories" },
 ];
@@ -68,10 +70,7 @@ export default function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
+            {...mobileMenu}
             className="overflow-hidden border-t border-forest/5 bg-paper lg:hidden"
           >
             <div className="container flex flex-col gap-5 py-6">

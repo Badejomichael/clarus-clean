@@ -1,6 +1,17 @@
-# Clarus — Cleaning Agency Landing Page
+# Clarus, Cleaning Agency Landing Page
 
-Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion + react-icons.
+Next.js (App Router) + TypeScript + Tailwind CSS v4 + Framer Motion + react-icons.
+
+**No `tailwind.config.ts`**, this uses Tailwind v4's CSS-first setup. Every
+custom color, font, radius, and shadow lives in `app/globals.css` inside an
+`@theme { ... }` block, and Tailwind generates the matching utility classes
+(`bg-forest`, `font-display`, `rounded-4xl`, `shadow-soft`, etc.) from those
+variables automatically. You still style components the normal Tailwind way,
+utility classes directly in JSX, nothing about how the components are
+written changed, only where the theme is defined.
+
+If you ever need to add a new color or token, add a line to the `@theme`
+block in `globals.css` rather than looking for a config file.
 
 ## Getting started
 
@@ -26,16 +37,25 @@ components/
   Gallery.tsx       # 3-photo proof-of-work strip
   Process.tsx      # 4-step "how it works"
   Pricing.tsx      # segmented (home/business) pricing packages, one highlighted tier
+  Story.tsx        # founder photo + personal note, the "human feel" section
   Global.tsx       # regions served + compliance list (international pitch angle)
+  Faq.tsx          # accordion answering real pre-booking hesitations
   Testimonials.tsx # sliding client quotes
   CTA.tsx          # closing call-to-action band
   Footer.tsx
+lib/
+  animations.ts    # every Framer Motion preset used across the site
 ```
+
+Every component imports its motion config from `lib/animations.ts` instead of
+defining it inline, so `fadeUp(...)`, `heroContainer`, `testimonialSlide(...)`,
+and the rest live in one place. Adjust timing, easing, or distance there and
+it updates everywhere that preset is used.
 
 ## Images
 
 All 10 image slots are now filled with real (compressed) photos, resized and
-re-encoded to reasonable web sizes. The whole set totals roughly 1.5 MB,
+re-encoded to reasonable web sizes, the whole set totals roughly 1.5 MB,
 down from ~22 MB in the originals. These are still stand-ins for layout
 purposes; swap any of them out later by overwriting the same filename.
 
@@ -47,6 +67,7 @@ purposes; swap any of them out later by overwriting the same filename.
 | `gallery-crew.jpg` | `Gallery.tsx` | Cleaner spraying/wiping a glass window |
 | `gallery-hotel.jpg` | `Gallery.tsx` | Made-up hotel-style bed |
 | `global-team.jpg` | `Global.tsx` | Diverse team meeting around a table |
+| `founder.jpg` | `Story.tsx` | Candid portrait, the founder/owner |
 | `avatar-amara.jpg` | `Testimonials.tsx` | Headshot, light background |
 | `avatar-karim.jpg` | `Testimonials.tsx` | Headshot, studio background |
 | `avatar-priya.jpg` | `Testimonials.tsx` | Headshot, studio background |
@@ -57,13 +78,13 @@ tags for `<Image>` and add `width`/`height` or `fill`.
 
 ## Brand & design notes
 
-- **Name:** "Clarus" (Latin root for *clear, bright*). It's short, pronounceable
+- **Name:** "Clarus" (Latin root for *clear, bright*), short, pronounceable
   across languages, and doesn't lock you into one country's naming
   convention, which matters if you're pitching internationally. Swap it in
   `Header.tsx`, `Footer.tsx`, and `layout.tsx` metadata if you land on
   something else.
 - **Palette:** deep forest ink (`forest`), muted sage/moss greens, a warm
-  brass accent for CTAs, and a soft porcelain/paper background. It evokes
+  brass accent for CTAs, and a soft porcelain/paper background, evokes
   "cared for" and "premium" without leaning on the generic navy+yellow
   cleaning-brand look.
 - **Type:** Fraunces (display serif with real personality) for headlines,
@@ -73,7 +94,7 @@ tags for `<Image>` and add `width`/`height` or `fill`.
   Respects `prefers-reduced-motion`.
 - **International angle:** the "Where we work" section and the compliance
   list in `Global.tsx` exist specifically to reassure clients evaluating you
-  for multi-country contracts. Edit the regions/cities to match where you
+  for multi-country contracts, edit the regions/cities to match where you
   actually operate (or plan to).
 
 ## Before you pitch
@@ -81,9 +102,12 @@ tags for `<Image>` and add `width`/`height` or `fill`.
 - Update the phone number, email, and address placeholders in `Header.tsx`,
   `CTA.tsx`, and `Footer.tsx`.
 - Replace the testimonial names/roles in `Testimonials.tsx` with real or
-  anonymized client quotes once you have them. Placeholder quotes will read
+  anonymized client quotes once you have them, placeholder quotes will read
   as fake to a sharp client.
 - Update stats in `TrustBar.tsx` to numbers you can stand behind.
-- The numbers in `Pricing.tsx` are placeholders for layout — replace with
+- The numbers in `Pricing.tsx` are placeholders for layout, replace with
   real starting rates (or remove specific figures in favor of "from" ranges)
   once you've priced your actual markets.
+- `Story.tsx` uses a placeholder name ("Elena Cross") and an invented founding
+  story. Replace both with the real person and the real story, a fabricated
+  founder note is worse than no founder note if a client ever checks.

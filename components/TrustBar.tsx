@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 const STATS = [
   { value: 180, suffix: "+", label: "Facilities under contract" },
@@ -45,10 +46,7 @@ export default function TrustBar() {
         {STATS.map((stat, i) => (
           <motion.div
             key={stat.label}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
+            {...fadeUp(i * 0.08, { y: 10, margin: "0px" })}
             className="text-center"
           >
             <p className="font-display text-4xl text-paper sm:text-5xl">

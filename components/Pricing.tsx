@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiCheck, FiHome, FiBriefcase, FiArrowUpRight } from "react-icons/fi";
+import { segmentPillTransition, pricingCard } from "@/lib/animations";
 
 type Plan = {
   name: string;
@@ -130,7 +131,7 @@ export default function Pricing() {
                 {segment === key && (
                   <motion.span
                     layoutId="segment-pill"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    transition={segmentPillTransition}
                     className="absolute inset-0 rounded-full bg-forest"
                   />
                 )}
@@ -148,13 +149,7 @@ export default function Pricing() {
             {plans.map((plan, i) => (
               <motion.div
                 key={`${segment}-${plan.name}`}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{
-                  opacity: 1,
-                  y: plan.highlighted ? -12 : 0,
-                }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
+                {...pricingCard(i * 0.07, plan.highlighted ? -12 : 0)}
                 className={
                   plan.highlighted
                     ? "relative flex flex-col rounded-4xl bg-forest p-8 text-paper shadow-soft lg:z-10"
@@ -229,7 +224,7 @@ export default function Pricing() {
 
         <p className="mt-8 max-w-2xl font-sans text-sm text-ink/50">
           Prices shown are indicative starting rates for illustration. Your
-          quote depends on square footage, frequency, and local market — ask
+          quote depends on square footage, frequency, and local market. Ask
           us for exact figures in your currency.
         </p>
       </div>

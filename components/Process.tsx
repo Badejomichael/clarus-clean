@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 const STEPS = [
   {
     n: "01",
     title: "Tell us the space",
-    copy: "Share square footage, site count, and how often you need us — over a call or a short form.",
+    copy: "Share square footage, site count, and how often you need us, over a call or a short form.",
   },
   {
     n: "02",
@@ -21,7 +22,7 @@ const STEPS = [
   {
     n: "04",
     title: "Ongoing reporting",
-    copy: "Photo check-ins and a monthly summary land in your inbox — no chasing required.",
+    copy: "Photo check-ins and a monthly summary land in your inbox, no chasing required.",
   },
 ];
 
@@ -43,10 +44,7 @@ export default function Process() {
           {STEPS.map((step, i) => (
             <motion.div
               key={step.n}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              {...fadeUp(i * 0.1, { y: 18 })}
               className="relative"
             >
               <span className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full bg-forest font-display text-lg text-paper">

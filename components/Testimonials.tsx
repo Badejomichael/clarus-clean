@@ -3,27 +3,28 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { testimonialSlide } from "@/lib/animations";
 
 const QUOTES = [
   {
     quote:
       "We moved eleven serviced apartments onto Clarus and finally have one invoice and one standard, instead of eleven different vendors.",
     name: "Amara Osei",
-    role: "Operations Director, Stayhaus Group — London",
+    role: "Operations Director, Stayhaus Group, London",
     avatar: "/images/avatar-amara.jpg",
   },
   {
     quote:
       "The supervisor speaks with our facilities lead in Arabic and reports back in English. That alone solved a year of miscommunication.",
     name: "Karim El-Sayed",
-    role: "Facilities Manager — Dubai",
+    role: "Facilities Manager, Dubai",
     avatar: "/images/avatar-karim.jpg",
   },
   {
     quote:
       "Turnover between guests used to be our weak point. Now housekeeping is the thing guests mention in reviews.",
     name: "Priya Nair",
-    role: "General Manager, Marram Boutique Hotel — Singapore",
+    role: "General Manager, Marram Boutique Hotel, Singapore",
     avatar: "/images/avatar-priya.jpg",
   },
 ];
@@ -69,17 +70,14 @@ export default function Testimonials() {
             <motion.div
               key={index}
               custom={direction}
-              initial={{ opacity: 0, x: direction * 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -direction * 40 }}
-              transition={{ duration: 0.45, ease: "easeInOut" }}
+              {...testimonialSlide(direction)}
               className="max-w-2xl"
             >
               <p className="text-balance font-display text-2xl leading-snug sm:text-3xl">
                 &ldquo;{current.quote}&rdquo;
               </p>
               <div className="mt-6 flex items-center gap-3">
-                {/* Client headshots — square, cropped to a circle here.
+                {/* Client headshots, square, cropped to a circle here.
                     Real photos build far more trust than icon avatars. */}
                 <img
                   src={current.avatar}

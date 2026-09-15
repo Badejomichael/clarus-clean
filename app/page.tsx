@@ -5,8 +5,10 @@ import Services from "@/components/Services";
 import Gallery from "@/components/Gallery";
 import Process from "@/components/Process";
 import Pricing from "@/components/Pricing";
+import Story from "@/components/Story";
 import Global from "@/components/Global";
 import Testimonials from "@/components/Testimonials";
+import Faq from "@/components/Faq";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -20,8 +22,10 @@ export default function Home() {
       <Gallery />
       <Process />
       <Pricing />
+      <Story />
       <Global />
       <Testimonials />
+      <Faq />
       <CTA />
       <Footer />
     </main>

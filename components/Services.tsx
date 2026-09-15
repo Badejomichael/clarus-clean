@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 import {
   FiBriefcase,
   FiHome,
@@ -66,24 +67,21 @@ export default function Services() {
 
         <div className="mt-14 grid gap-5 lg:grid-cols-5">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.55 }}
+            {...fadeUp(0, { duration: 0.55 })}
             className="group relative flex flex-col justify-between overflow-hidden rounded-4xl bg-forest p-9 text-paper shadow-soft lg:col-span-2 lg:row-span-2"
           >
-            {/* Replace with /public/images/office-team.jpg — a wide shot of a
+            {/* Replace with /public/images/office-team.jpg: a wide shot of a
                 crew cleaning a bright office or lobby, cool-toned works best
                 against the overlay below. */}
             <img
               src="/images/office-team.jpg"
               alt=""
               aria-hidden
-              className="absolute inset-0 h-full w-full object-cover opacity-25 transition-transform duration-700 group-hover:scale-105"
+              className="absolute inset-0 h-full w-full object-cover opacity-55 transition-transform duration-700 group-hover:scale-105"
             />
             <div
               aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-forest via-forest/95 to-forest/70"
+              className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/55 to-forest/35"
             />
             <div className="relative">
               <FiBriefcase size={30} className="text-brass" />
@@ -91,7 +89,7 @@ export default function Services() {
               <p className="mt-4 max-w-sm font-sans text-[15px] leading-relaxed text-mist/85">
                 Nightly or daytime programs built around your operating
                 hours, with a single account manager across every location
-                you run — from one office to a regional portfolio.
+                you run, from one office to a regional portfolio.
               </p>
             </div>
             <a
@@ -106,10 +104,7 @@ export default function Services() {
           {SMALL_SERVICES.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: 0.06 * i }}
+              {...fadeUp(0.06 * i)}
               className={`rounded-4xl border border-forest/8 bg-paper p-7 shadow-card transition-transform hover:-translate-y-1 ${
                 SMALL_SPANS[i]
               }`}

@@ -1,24 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 const PHOTOS = [
   {
     src: "/images/gallery-kitchen.jpg",
     alt: "Freshly cleaned kitchen countertop and sink",
-    caption: "Residential deep clean — Lisbon",
+    caption: "Residential deep clean in Lisbon",
     span: "lg:col-span-3 lg:row-span-2",
   },
   {
     src: "/images/gallery-crew.jpg",
     alt: "Clarus crew member cleaning a glass office partition",
-    caption: "Office program — Singapore",
+    caption: "Office program in Singapore",
     span: "lg:col-span-2",
   },
   {
     src: "/images/gallery-hotel.jpg",
     alt: "Made-up hotel room bed and turned-down linens",
-    caption: "Hospitality turnover — Dubai",
+    caption: "Hospitality turnover in Dubai",
     span: "lg:col-span-2",
   },
 ];
@@ -32,7 +33,7 @@ export default function Gallery() {
             The standard, in practice
           </h2>
           <p className="mt-5 font-sans text-lg leading-relaxed text-ink/70">
-            A handful of recent sites — the same finish whether it&apos;s a
+            A handful of recent sites, the same finish whether it&apos;s a
             single kitchen or a hotel floor.
           </p>
         </div>
@@ -41,10 +42,7 @@ export default function Gallery() {
           {PHOTOS.map((photo, i) => (
             <motion.figure
               key={photo.src}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              {...fadeUp(i * 0.08)}
               className={`group relative m-0 overflow-hidden rounded-4xl bg-mist ${photo.span}`}
             >
               {/* See README for the exact shot to drop in at this path */}

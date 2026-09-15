@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------
+   Theme tokens, this replaces tailwind.config.ts entirely.
+   Tailwind v4 reads these CSS variables directly and generates the
+   matching utility classes (e.g. --color-forest below gives you
+   bg-forest, text-forest, border-forest, text-forest/70, etc.)
+--------------------------------------------------------------------- */
 @theme {
   --color-forest: #1F3329;
   --color-forest-light: #2C4636;
@@ -25,7 +31,7 @@
 }
 
 /* ---------------------------------------------------------------------
-   Container — previously the "container" key in tailwind.config.ts.
+   Container, previously the "container" key in tailwind.config.ts.
    Centered, responsive side padding, and a 1240px cap at the 2xl
    breakpoint, matching the old config 1:1.
 --------------------------------------------------------------------- */
@@ -89,17 +95,11 @@ body {
   border-radius: 4px;
 }
 
-/* Organic asymmetric frame used behind the hero portrait — scales cleanly at any size */
+/* Organic asymmetric frame used behind the hero portrait, scales cleanly at any size */
 .blob-frame {
   border-radius: 42% 58% 61% 39% / 46% 41% 59% 54%;
 }
 
 .text-balance {
   text-wrap: balance;
-}
-
-@media(max-width: 760px) {
-  .supervisors-img {
-    height: 250px !important;
-  }
 }

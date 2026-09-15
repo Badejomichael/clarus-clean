@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function CTA() {
@@ -8,22 +9,19 @@ export default function CTA() {
     <section id="quote" className="py-24 lg:py-32">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+          {...fadeUp(0, { y: 20, duration: 0.6, margin: "-80px" })}
           className="relative overflow-hidden rounded-5xl bg-forest px-8 py-16 text-center text-paper sm:px-16"
         >
-          {/* Replace with /public/images/cta-clean-space.jpg — a wide, calm
+          {/* Replace with /public/images/cta-clean-space.jpg: a wide, calm
               shot of a finished space (living room or lobby) works well
               since it sits behind a dark overlay. */}
           <img
             src="/images/cta-clean-space.jpg"
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-20"
+            className="absolute inset-0 h-full w-full object-cover opacity-45"
           />
-          <div aria-hidden className="absolute inset-0 bg-forest/80" />
+          <div aria-hidden className="absolute inset-0 bg-forest/55" />
 
           <h2 className="relative mx-auto max-w-xl text-balance font-display text-4xl leading-tight sm:text-5xl">
             Let&apos;s scope your first site this week

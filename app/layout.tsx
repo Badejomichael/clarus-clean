@@ -19,7 +19,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Clarus | Facility & Residential Cleaning, Done Properly",
   description:
-    "Clarus provides trained, insured cleaning teams for homes, offices, and hospitality spaces across 14 countries — booked in minutes, delivered with care.",
+    "Clarus provides trained, insured cleaning teams for homes, offices, and hospitality spaces across 14 countries, booked in minutes and delivered with care.",
 };
 
 export default function RootLayout({

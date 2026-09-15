@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 import { FiCheckCircle } from "react-icons/fi";
 
 const REGIONS = [
@@ -23,14 +24,14 @@ export default function Global() {
   return (
     <section id="global" className="py-24 lg:py-32">
       <div className="container">
-        {/* Replace with /public/images/global-team.jpg — a candid shot of a
-            multinational team or a world-map-style overview; wide aspect
+        {/* Replace with /public/images/global-team.jpg: a candid shot of a
+            multinational team or a world-map-style overview, wide aspect
             ratio (roughly 16:6) works best here. */}
         <div className="mb-14 overflow-hidden rounded-4xl">
           <img
             src="/images/global-team.jpg"
             alt="Clarus regional supervisors coordinating across markets"
-            className="supervisors-img h-120 w-full object-cover "
+            className="h-56 w-full object-cover sm:h-72"
           />
         </div>
 
@@ -59,10 +60,7 @@ export default function Global() {
             {REGIONS.map((region, i) => (
               <motion.div
                 key={region.name}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
+                {...fadeUp(i * 0.06, { y: 14, duration: 0.45 })}
                 className="rounded-3xl border border-forest/8 bg-porcelain p-6"
               >
                 <p className="font-display text-lg text-forest">{region.name}</p>
