@@ -7,7 +7,7 @@ Built with Next.js (App Router), TypeScript, Tailwind CSS, and Framer Motion.
 
 | | |
 |---|---|
-| Framework | Next.js 14, App Router |
+| Framework | Next.js, App Router |
 | Language | TypeScript |
 | Styling | Tailwind CSS, utility classes in components, theme in `app/globals.css` |
 | Motion | Framer Motion, presets in `lib/animations.ts` |
